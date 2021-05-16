@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <th>Number</th>
+    <th>Created At</th>
+    <th>Expire At</th>
+    <th>Amount</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let policy of policies">
+
+      <td>{{policy.id}}</td>
+      <td>{{policy.gaugeValue}}</td>
+      <td>
+          <button (click)="delete(policy.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="display: block">
+  <canvas baseChart
+      [chartType]="chartType"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
